@@ -1,0 +1,17 @@
+UNIVERSIDAD NACIONAL EXPERIMENTAL DE GUAYANA (UNEG)
+PRUEBA DIAGNOSTICA - LENGUAJES Y COMPILADORES
+ESTUDIANTE: Alexander Fernandez
+EJERCICIO 2: POLINOMIO (x+1)^n CON TRIANGULO DE PASCAL (C)
+======================================================================
+
+1. MEDICION DE RENDIMIENTO PARA n = 100 (MEMORIA DINAMICA CON BIGINT):
+   - Tiempo promedio en C : 0.5101 ms (medido sobre 200 iteraciones)
+   - Coeficiente central C(100, 50): 100891344545564193334812497256
+   - Total de coeficientes generados: 101
+
+2. POLINOMIO GENERADO PARA n = 4:
+   P(x) = x^4 + 4x^3 + 6x^2 + 4x + 1
+
+3. EVALUACION PASO A PASO PARA f(3) con n = 4:
+   Resultado final = 256
+   Verificacion: (3 + 1)^4 = (4)^4 = 256 [CORRECTO]

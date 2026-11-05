@@ -1,0 +1,34 @@
+UNIVERSIDAD NACIONAL EXPERIMENTAL DE GUAYANA (UNEG)
+PRUEBA DIAGNOSTICA - LENGUAJES Y COMPILADORES
+ESTUDIANTE: Alexander Fernandez
+EJERCICIO 3: ANALIZADOR Y TRADUCTOR DE PALABRAS RESERVADAS EN C
+======================================================================
+
+Archivo analizado : c:\Users\Alex\Algorithm-Architects\PRUEBA DIAGNOSTICA\Alexander Fernández\Ejercicio 3/programa_prueba.c
+Tamano dinamico   : 1456 bytes
+Tiempo de carga   : 0.3138 ms
+Tiempo de analisis: 0.0279 ms
+
+RESUMEN DE PALABRAS RESERVADAS ENCONTRADAS:
+- Palabras distintas encontradas: 17
+- Total de ocurrencias           : 27
+
+#    Palabra C       Traduccion Espanol   Frecuencia  
+------------------------------------------------------------
+1    break           interrumpir          3           
+2    case            caso                 1           
+3    char            caracter             2           
+4    const           constante            1           
+5    continue        continuar            1           
+6    default         defecto              1           
+7    double          doble                1           
+8    else            sino                 2           
+9    float           flotante             1           
+10   for             para                 1           
+11   if              si                   2           
+12   int             entero               5           
+13   return          retornar             1           
+14   struct          estructura           1           
+15   switch          segun                1           
+16   void            vacio                2           
+17   while           mientras             1           

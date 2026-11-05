@@ -1,0 +1,17 @@
+UNIVERSIDAD NACIONAL EXPERIMENTAL DE GUAYANA (UNEG)
+PRUEBA DIAGNÓSTICA - LENGUAJES Y COMPILADORES
+ESTUDIANTE: Alexander Fernández
+EJERCICIO 2: POLINOMIO (x+1)^n CON TRIÁNGULO DE PASCAL
+======================================================================
+
+1. COMPARATIVA DE TIEMPOS DE EJECUCIÓN PARA n = 100:
+   - Tiempo en Python : 0.4242 ms (medido sobre 200 iteraciones)
+   - Coeficiente C(100, 50): 100891344545564193334812497256
+   - Número de coeficientes generados: 101
+
+2. POLINOMIO GENERADO PARA n = 4:
+   P(x) = x^4 + 4x^3 + 6x^2 + 4x + 1
+
+3. EVALUACIÓN PASO A PASO PARA f(3) con n = 4:
+   Resultado final = 256
+   Verificación: (3+1)^4 = 4^4 = 256

@@ -1,0 +1,26 @@
+UNIVERSIDAD NACIONAL EXPERIMENTAL DE GUAYANA (UNEG)
+PRUEBA DIAGNÓSTICA - LENGUAJES Y COMPILADORES
+ESTUDIANTE: Alexander Fernández
+EJERCICIO 1: VERIFICADOR DE MOVIMIENTOS DE CABALLO EN AJEDREZ
+======================================================================
+
+REPORTE DE MEDICIÓN DE TIEMPOS DE EJECUCIÓN (PYTHON):
+
+1) Para n = 100 movimientos (Ak = a2):
+   - Estado: movimiento CORRECTO.
+   - Tiempo de ejecución: 0.1088 ms (0.000109 s)
+
+2) Para 10 iteraciones de la secuencia impresa en la guía (262 movimientos, Ak = a2):
+   - Estado: movimiento CORRECTO.
+   - Tiempo total (10 iteraciones): 2.0027 ms
+   - Tiempo promedio por iteración : 0.2003 ms
+
+3) Para 10 iteraciones de exactamente 500 movimientos continuos (Ak = a2):
+   - Estado: movimiento CORRECTO.
+   - Tiempo total (10 iteraciones): 6.8979 ms
+   - Tiempo promedio por iteración : 0.6898 ms
+
+OBSERVACIÓN TÉCNICA:
+El enunciado impreso en la guía dice 'los siguientes 500 movimientos', pero el bloque
+de texto impreso en las páginas 1 y 2 consta de exactamente 330 movimientos. Ambos escenarios
+(los 330 literales y la extensión continua a 500) fueron validados como 100% correctos.
