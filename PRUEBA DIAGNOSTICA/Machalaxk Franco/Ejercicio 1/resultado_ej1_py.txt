@@ -1,0 +1,18 @@
+UNIVERSIDAD NACIONAL EXPERIMENTAL DE GUAYANA (UNEG)
+PRUEBA DIAGNOSTICA - LENGUAJES Y COMPILADORES
+EJERCICIO 1: VERIFICADOR DE MOVIMIENTOS DE CABALLO (LENGUAJE PYTHON)
+======================================================================
+
+REPORTE DE MEDICION DE TIEMPOS DE EJECUCION (PYTHON):
+
+1) Para n = 100 movimientos (Ak = a2):
+   - Estado: movimiento CORRECTO.
+   - Tiempo de ejecucion: 0.167500 ms
+
+2) Para 10 iteraciones (500 movimientos, Ak = a2):
+   - Estado: movimiento INCORRECTO.
+   - Tiempo total (10 pasadas): 1.6272 ms
+   - Tiempo promedio por pasada: 0.1627 ms
+
+DETALLE DE LOS CASOS DE PRUEBA DE LA GUIA:
+Los 9 casos de prueba del documento oficial fueron verificados exitosamente (PASS).

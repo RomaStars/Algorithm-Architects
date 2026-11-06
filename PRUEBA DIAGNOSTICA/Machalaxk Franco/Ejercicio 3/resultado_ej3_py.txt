@@ -1,0 +1,29 @@
+UNIVERSIDAD NACIONAL EXPERIMENTAL DE GUAYANA (UNEG)
+PRUEBA DIAGNOSTICA - LENGUAJES Y COMPILADORES
+EJERCICIO 3: ANALIZADOR LEXICO Y TRADUCCION (LENGUAJE PYTHON)
+======================================================================
+
+REPORTE DE ANALISIS DE PALABRAS RESERVADAS:
+Programa analizado: programa_ejemplo.c
+Longitud del codigo: 1047 bytes
+Total de ocurrencias encontradas: 25
+
+DETALLE DE PALABRAS TRADUCIDAS:
+  - break        -> romper          (3 vezes)
+  - case         -> caso            (2 vezes)
+  - char         -> caracter        (2 vezes)
+  - const        -> constante       (1 vez)
+  - default      -> por_defecto     (1 vez)
+  - if           -> si              (1 vez)
+  - int          -> entero          (4 vezes)
+  - return       -> retornar        (3 vezes)
+  - sizeof       -> tamano_de       (1 vez)
+  - struct       -> estructura      (2 vezes)
+  - switch       -> segun           (1 vez)
+  - typedef      -> tipo_def        (1 vez)
+  - unsigned     -> sin_signo       (1 vez)
+  - void         -> vacio           (1 vez)
+  - while        -> mientras        (1 vez)
+
+EVIDENCIA DE TRADUCCION:
+El codigo traducido se ha guardado exitosamente en 'programa_traducido_py.txt'.
