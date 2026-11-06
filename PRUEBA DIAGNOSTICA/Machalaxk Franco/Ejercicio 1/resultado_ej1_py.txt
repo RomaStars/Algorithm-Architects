@@ -1,0 +1,44 @@
+UNIVERSIDAD NACIONAL EXPERIMENTAL DE GUAYANA (UNEG)
+PRUEBA DIAGNOSTICA - LENGUAJES Y COMPILADORES
+EJERCICIO 1: VERIFICADOR DE MOVIMIENTOS DE CABALLO (LENGUAJE PYTHON)
+======================================================================
+
+======================================================================
+VERIFICACION DE LOS CASOS DE PRUEBA DEL ENUNCIADO:
+======================================================================
+
+Para Ak = a1 n=4 y C=Kc2 Kd4 Kb3 Kc5
+  salida: movimiento CORRECTO.
+
+Para Ak = a1 n=4 y C=Kc2 Kd4 Kb4 Kc5
+  salida: INCORRECTO falla en el movimiento 3.
+
+Para Ak = a2 n=5 y C=Kc3 Ke4 Kf6 Ke8 Kg7
+  salida: movimiento CORRECTO.
+
+Para Ak = a2 n=5 y C=Kc8 Ke4 Kf6 Ke8 Kg7
+  salida: INCORRECTO falla en el movimiento 1.
+
+Para Ak = a8 n=2 y C=Kb6 Kd7
+  salida: movimiento CORRECTO.
+
+Para Ak = a8 n=2 y C=Kb6 Kb7
+  salida: INCORRECTO falla en el movimiento 2.
+
+Para Ak = a1 n=10 y C=Kc2 Kd4 Kf3 Ke5 Kg6 Kh8 Kf7 Kd8 Kc6 Kb4
+  salida: movimiento CORRECTO.
+
+Para Ak = a1 n=10 y C=Kc2 Kd4 Kf3 Ke5 Kg6 Kh8 Kf7 Kd8 Kc6 Qb4
+  salida: INCORRECTO falla letra Q no pertenece a un caballo.
+
+Para Ak = a1 n=10 y C=Kc2 Kd4 Kf3 Ke5 Kg6 Kh8 Kf7 Kd8 Kh6 Kb4
+  salida: INCORRECTO falla en el movimiento 9.
+
+
+======================================================================
+REPORTE DE MEDICION DE TIEMPOS (10 iteraciones de los 500 movimientos):
+======================================================================
+
+- Estado final: movimiento CORRECTO.
+- Tiempo total (10 pasadas): 4.7663 ms
+- Tiempo promedio por pasada: 0.4766 ms
