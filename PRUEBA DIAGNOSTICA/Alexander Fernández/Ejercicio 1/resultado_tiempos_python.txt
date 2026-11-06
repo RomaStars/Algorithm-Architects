@@ -8,17 +8,17 @@ REPORTE DE MEDICIÓN DE TIEMPOS DE EJECUCIÓN (PYTHON):
 
 1) Para n = 100 movimientos (Ak = a2):
    - Estado: movimiento CORRECTO.
-   - Tiempo de ejecución: 0.1088 ms (0.000109 s)
+   - Tiempo de ejecución: 0.0976 ms (0.000098 s)
 
 2) Para 10 iteraciones de la secuencia impresa en la guía (262 movimientos, Ak = a2):
    - Estado: movimiento CORRECTO.
-   - Tiempo total (10 iteraciones): 2.0027 ms
-   - Tiempo promedio por iteración : 0.2003 ms
+   - Tiempo total (10 iteraciones): 2.3802 ms
+   - Tiempo promedio por iteración : 0.2380 ms
 
 3) Para 10 iteraciones de exactamente 500 movimientos continuos (Ak = a2):
    - Estado: movimiento CORRECTO.
-   - Tiempo total (10 iteraciones): 6.8979 ms
-   - Tiempo promedio por iteración : 0.6898 ms
+   - Tiempo total (10 iteraciones): 4.4974 ms
+   - Tiempo promedio por iteración : 0.4497 ms
 
 OBSERVACIÓN TÉCNICA:
 El enunciado impreso en la guía dice 'los siguientes 500 movimientos', pero el bloque

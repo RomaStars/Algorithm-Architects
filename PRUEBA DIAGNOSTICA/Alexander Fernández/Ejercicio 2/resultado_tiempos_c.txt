@@ -5,7 +5,7 @@ EJERCICIO 2: POLINOMIO (x+1)^n CON TRIANGULO DE PASCAL (C)
 ======================================================================
 
 1. MEDICION DE RENDIMIENTO PARA n = 100 (MEMORIA DINAMICA CON BIGINT):
-   - Tiempo promedio en C : 0.5101 ms (medido sobre 200 iteraciones)
+   - Tiempo promedio en C : 0.9260 ms (medido sobre 200 iteraciones)
    - Coeficiente central C(100, 50): 100891344545564193334812497256
    - Total de coeficientes generados: 101
 
