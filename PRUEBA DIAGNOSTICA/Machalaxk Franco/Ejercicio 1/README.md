@@ -63,11 +63,12 @@ $$(|\Delta \text{columna}| = 1 \land |\Delta \text{fila}| = 2) \quad \lor \quad 
 ```bash
 python ejercicio1.py
 
+```
 ### En C (GCC / MinGW / Clang):
 ```bash
 gcc ejercicio1.c -O2 -o ejercicio1
 ./ejercicio1
-
+```
 ## 5. Casos de Prueba Oficiales de la Guía
 
 A continuación se presentan los 9 casos de prueba estipulados en el enunciado, junto con la salida exacta que genera nuestro programa y su respectiva validación:
