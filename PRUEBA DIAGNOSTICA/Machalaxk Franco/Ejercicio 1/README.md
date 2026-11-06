@@ -1,6 +1,6 @@
 # Ejercicio 1: Verificación de Movimientos de Caballo en Ajedrez
 
-**Universidad Nacional Experimental de Guayana (UNEG)**  
+**Universidad Nacional Experimental de Guayana**  
 **Coordinación de Ingeniería en Informática**  
 **Lenguajes y Compiladores — Periodo 2026-II**  
 **Estudiante:** Mchalaxk Franco  
