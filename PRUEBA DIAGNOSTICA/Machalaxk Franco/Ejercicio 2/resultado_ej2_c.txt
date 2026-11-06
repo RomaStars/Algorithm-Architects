@@ -23,5 +23,5 @@ REPORTE DE MEDICION DE TIEMPOS DE EJECUCION:
 Generacion del polinomio para n = 100
 Repeticiones: 100
 
-Tiempo total (C)    : 2.000000 ms
-Tiempo promedio (C) : 0.020000 ms
+Tiempo total (C)    : 16.000000 ms
+Tiempo promedio (C) : 0.160000 ms
