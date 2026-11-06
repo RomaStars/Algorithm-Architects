@@ -1,0 +1,10 @@
+===================================================
+  RESULTADOS DE EJECUCION Y BENCHMARK - EJERCICIO 1
+===================================================
+Posicion Inicial: a2
+Movimientos evaluados por iteracion: 500
+Repeticiones del benchmark: 10
+Resultado de validacion: CORRECTO
+Tiempo total: 0.001000 segundos
+Tiempo promedio por ejecucion: 0.00010000 segundos (0.100000 ms)
+Estado: Verificacion completada exitosamente.
