@@ -1,0 +1,8 @@
+===================================================
+  RESULTADOS DE EJECUCION Y BENCHMARK - PYTHON
+===================================================
+Parametro n evaluado: 100
+Repeticiones de prueba: 10000
+Tiempo total: 2.816892 segundos
+Tiempo promedio: 0.00028169 segundos (0.281689 ms)
+Estado: Ejecucion exitosa con listas dinamicas.
