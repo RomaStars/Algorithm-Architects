@@ -87,9 +87,5 @@ Se realizaron las pruebas de estrés generando el polinomio para $n=100$ un tota
 
 | Métrica | Implementación en C | Implementación en Python |
 | :--- | :--- | :--- |
-| **Generación de n=100 (100 rep.)** | `25.000000 ms` | `23.855100 ms` |
-| **Tiempo promedio por repetición** | `0.250000 ms` | `0.238551 ms` |
-
-### Notas técnicas sobre los resultados:
-1. **Rendimiento y Memoria Dinámica:** En esta ejecución particular, Python resultó ligeramente más rápido (23.85 ms vs 25.00 ms). Esto se debe a que Python realiza sus operaciones aritméticas de enteros grandes utilizando código C altamente optimizado internamente. Por otro lado, la implementación en C realiza múltiples llamadas al sistema para redimensionar memoria dinámicamente (`realloc`) a medida que los coeficientes crecen durante el cálculo del Triángulo de Pascal.
-2. **Cumplimiento del Enunciado:** Ambas implementaciones demuestran el uso de memoria dinámica. En C es explícita mediante `malloc`/`realloc` y punteros; en Python es implícita mediante la asignación automática en el *heap* de objetos inmutables.
+| **Generación de n=100 (100 rep.)** | `16.000000 ms` | `25.237700 ms` |
+| **Tiempo promedio por repetición** | `0.160000 ms` | `0.252377 ms` |
