@@ -1,4 +1,5 @@
 // Programa de prueba en C
+#include <stdio.h>
 
 int main(void) {
     int contador = 0;
