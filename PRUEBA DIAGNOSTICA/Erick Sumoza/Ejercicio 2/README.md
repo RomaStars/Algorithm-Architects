@@ -154,8 +154,8 @@ Métricas obtenidas al ejecutar el algoritmo para **$n = 100$** durante **$10,00
 
 | Lenguaje | Parámetro $n$ | Repeticiones | Tiempo Total (s) | Tiempo Promedio / Ejecución | Estado y Archivo |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **Lenguaje C** | 100 | 10,000 | $\approx 0.001200\text{ s}$ | $\approx 0.000120\text{ ms}$ | `c/resultados.txt` |
-| **Python 3** | 100 | 10,000 | $\approx 0.045000\text{ s}$ | $\approx 0.004500\text{ ms}$ | `python/resultados.txt` |
+| **Lenguaje C** | 100 | 10,000 | $\approx 0.111000\text{ s}$ | $\approx 0.00001110\text{ ms}$ | `c/resultados.txt` |
+| **Python 3** | 100 | 10,000 | $\approx 2.816892\text{ s}$ | $\approx 0.00028169\text{ ms}$ | `python/resultados.txt` |
 
 ### Análisis Comparativo:
 1. **Eficiencia en C:** El programa en Lenguaje C resulta ser entre **35 y 40 veces más rápido** que el de Python. Esto se debe a la compilación directa a código máquina binario, la ausencia de capas de interpretación y la gestión manual de arreglos en memoria estática/heap mediante `malloc`.
