@@ -1,6 +1,6 @@
 # Ejercicio 3: Analizador Léxico y Traducción de Palabras Reservadas en C
 
-**Universidad Nacional Experimental de Guayana (UNEG)**  
+**Universidad Nacional Experimental de Guayana**  
 **Coordinación de Ingeniería en Informática**  
 **Lenguajes y Compiladores — Periodo 2026-II**  
 **Estudiante:** Mchalaxk Franco  
@@ -20,7 +20,7 @@ Para un programa escrito en lenguaje C, cargado en memoria de forma dinámica, e
 ## 2. Fundamento Teórico y Algorítmico
 
 ### 2.1. Análisis Léxico (Lexer)
-A diferencia de una simple búsqueda de texto (`Ctrl + F`), este programa implementa un **autómata o analizador léxico** que recorre el código carácter por carácter. Para garantizar la precisión, el lexer implementa reglas de exclusión:
+A diferencia de una simple búsqueda de texto, este programa implementa un **autómata o analizador léxico** que recorre el código carácter por carácter. Para garantizar la precisión, el lexer implementa reglas de exclusión:
 - Si encuentra `//`, ignora el resto de la línea.
 - Si encuentra `/*`, ignora todo hasta cerrar con `*/`.
 - Si encuentra comillas dobles `"..."` o simples `'...'`, procesa la cadena completa sin traducir su contenido.
@@ -28,8 +28,7 @@ A diferencia de una simple búsqueda de texto (`Ctrl + F`), este programa implem
 Solo cuando identifica un **identificador válido** (`[A-Za-z_][A-Za-z0-9_]*`), procede a buscar la palabra en la tabla de traducción.
 
 ### 2.2. Gestión de Memoria Dinámica
-- **En C (`ejercicio3.c`):** El código fuente del archivo `.c` se carga en un búfer que crece dinámicamente usando `malloc()` y `realloc()`. Esto garantiza que el programa pueda analizar archivos de cualquier tamaño sin desbordar la memoria (stack overflow).
-- **En Python (`ejercicio3.py`):** La lectura se realiza de forma nativa, aprovechando la gestión automática de memoria del intérprete.
+- El código fuente del archivo `.c` se carga en un búfer que crece dinámicamente usando `malloc()` y `realloc()`. Esto garantiza que el programa pueda analizar archivos de cualquier tamaño sin desbordar la memoria (stack overflow), cumpliendo con el requisito de "cargado en memoria de forma dinámica".
 
 ### 2.3. Complejidad Computacional
 - **Complejidad Temporal:** $O(L)$, donde $L$ es la longitud en caracteres del programa analizado. Se realiza un único recorrido lineal.
@@ -43,18 +42,23 @@ Solo cuando identifica un **identificador válido** (`[A-Za-z_][A-Za-z0-9_]*`), 
 | :--- | :--- |
 | `programa_ejemplo.c` | Programa en C que sirve como entrada para ser analizado. |
 | `ejercicio3.c` | Implementación del lexer y traductor en C (con memoria dinámica). |
-| `ejercicio3.py` | Implementación del lexer y traductor en Python. |
 | `resultado_ej3_c.txt` | Reporte generado por C con el conteo de palabras. |
-| `resultado_ej3_py.txt` | Reporte generado por Python con el conteo de palabras. |
 | `programa_traducido_c.txt` | Salida del código con las palabras ya traducidas (C). |
-| `programa_traducido_py.txt` | Salida del código con las palabras ya traducidas (Python). |
 | `README.md` | Documentación técnica y académica del ejercicio. |
 
 ---
 
+## 4. Instrucciones de Compilación y Ejecución
+
+### En C (GCC / MinGW / Clang):
+```bash
+gcc ejercicio3.c -O2 -o ejercicio3
+./ejercicio3
+```
+
 ---
 
-## 4. Diccionario de Palabras Reservadas (Tabla de Traducción)
+## 5. Diccionario de Palabras Reservadas (Tabla de Traducción)
 
 El programa cuenta con un mapeo de las 44 palabras reservadas del estándar de C (C89, C99 y C11). A continuación se presenta la tabla completa que utiliza el analizador léxico:
 
@@ -105,22 +109,11 @@ El programa cuenta con un mapeo de las 44 palabras reservadas del estándar de C
 | `_Static_assert` | `asercion_estatica` | C11 |
 | `_Thread_local` | `hilo_local` | C11 |
 
-## 5. Instrucciones de Compilación y Ejecución
+---
 
-### En Python:
-```bash
-python ejercicio3.py
-
-```
-### En C (GCC / MinGW / Clang):
-```bash
-gcc ejercicio3.c -O2 -o ejercicio3
-./ejercicio3
-
-```
 ## 6. Verificación del Funcionamiento (Traducción)
 
-El programa analizó un código de prueba (`programa_ejemplo.c`) diseñado para incluir estructuras complejas (punteros, `typedef`, `struct`, `switch`). Ambos lenguajes detectaron y tradujeron exitosamente **25 ocurrencias**:
+El programa analizó un código de prueba (`programa_ejemplo.c`) diseñado para incluir estructuras complejas (punteros, `typedef`, `struct`, `switch`). El lexer detectó y tradujo exitosamente **25 ocurrencias**:
 
 | Palabra Reservada (Inglés) | Traducción (Español) | Ocurrencias | Estado |
 | :--- | :--- | :---: | :---: |
@@ -141,16 +134,18 @@ El programa analizó un código de prueba (`programa_ejemplo.c`) diseñado para 
 | `while` | `mientras` | 1 | ✅ PASS |
 | **Total** | | **25** | **✅ PASS** |
 
-*Nota: Palabras como `printf` o `malloc` no fueron traducidas (por no ser reservadas), y el texto dentro de las comillas (`"lexer"`) se mantuvo intacto.*
+Palabras como `printf` o `malloc` no fueron traducidas (por no ser reservadas), y el texto dentro de las comillas (`"lexer"`) se mantuvo intacto, demostrando la efectividad del autómata.*
 
---- 
+---
 
 ## 7. Resultados del Análisis y Notas Técnicas
 
-Los reportes completos con esta información se encuentran guardados automáticamente en los archivos `resultado_ej3_c.txt` y `resultado_ej3_py.txt`.
+Los reportes completos con esta información se encuentran guardados automáticamente en el archivo `resultado_ej3_c.txt`.
 
-| Métrica | Implementación en C | Implementación en Python |
-| :--- | :--- | :--- |
-| **Programa analizado** | `programa_ejemplo.c` | `programa_ejemplo.c` |
-| **Total de ocurrencias** | `25` | `25` |
-| **Longitud detectada** | `1096 bytes` | `1047 bytes` |
+| Métrica | Implementación en C |
+| :--- | :--- |
+| **Programa analizado** | `programa_ejemplo.c` |
+| **Total de ocurrencias** | `25` |
+| **Longitud detectada** | `1096 bytes` |
+
+---

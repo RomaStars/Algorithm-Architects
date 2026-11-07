@@ -6,8 +6,8 @@ EJERCICIO 3: ANALIZADOR Y TRADUCTOR DE PALABRAS RESERVADAS EN C
 
 Archivo analizado : c:\Users\Alex\Algorithm-Architects\PRUEBA DIAGNOSTICA\Alexander Fernández\Ejercicio 3/programa_prueba.c
 Tamano dinamico   : 1456 bytes
-Tiempo de carga   : 0.3138 ms
-Tiempo de analisis: 0.0279 ms
+Tiempo de carga   : 0.6864 ms
+Tiempo de analisis: 0.0228 ms
 
 RESUMEN DE PALABRAS RESERVADAS ENCONTRADAS:
 - Palabras distintas encontradas: 17

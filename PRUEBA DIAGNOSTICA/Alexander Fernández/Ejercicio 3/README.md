@@ -20,8 +20,10 @@ Para un programa escrito en lenguaje C, cargado en una memoria de forma dinámic
 
 ### 2.1. Carga Dinámica en Memoria
 De acuerdo con el requisito explícito de la prueba diagnóstica:
-- **En C (`traductor_c.c`):** Se utiliza `fseek()` y `ftell()` para determinar la longitud exacta del archivo en bytes, y luego se reserva un bloque dinámico en el heap con `malloc(tamano + 1)`. La lectura se efectúa en un solo paso mediante `fread()`, garantizando la máxima eficiencia de E/S.
-- **En Python (`traductor_c.py`):** El contenido se lee en un búfer dinámico en memoria, reportando su tamaño exacto en bytes y líneas.
+- En `traductor_c.c`, se utiliza `fseek()` y `ftell()` para determinar la longitud exacta del archivo fuente en bytes.
+- Luego se reserva un bloque dinámico en el heap mediante `malloc(tamano + 1)`.
+- La lectura se efectúa en un solo paso mediante `fread()`, garantizando la máxima eficiencia de E/S.
+- El archivo se libera adecuadamente al finalizar el análisis con `free()`.
 
 ### 2.2. Autómata Léxico y Discriminación de Tokens
 Un error común en sustituciones simples por cadenas (como `replace`) es generar falsos positivos:
@@ -29,12 +31,12 @@ Un error común en sustituciones simples por cadenas (como `replace`) es generar
 - Alterar texto dentro de literales de cadena (ej: `"ingrese el valor if"` debe mantenerse inalterado).
 - Alterar comentarios de código (ej: `// if contador` no debe modificarse).
 
-El analizador léxico implementado aquí opera como un escáner formal que clasifica:
-1. **Comentarios de una línea (`// ... \n`):** Se copian literalmente.
-2. **Comentarios multilínea (`/* ... */`):** Se copian literalmente.
+El analizador léxico implementado en C opera como un escáner formal que clasifica:
+1. **Comentarios de una línea (`// ... \n`):** Se copian literalmente sin traducir.
+2. **Comentarios multilínea (`/* ... */`):** Se copian literalmente sin traducir.
 3. **Cadenas de caracteres (`" ... "`):** Se reconocen secuencias de escape `\"` y se preserva el texto literal.
-4. **Constantes de caracteres (`' ... '`):** Se copian literalmente.
-5. **Identificadores y Palabras Clave (`[a-zA-Z_][a-zA-Z0-9_]*`):** Se extrae el lexema completo y se consulta en la tabla de 37 palabras reservadas de C. Si coincide, se incrementa el contador de frecuencia y se traduce; de lo contrario, se mantiene el identificador original.
+4. **Constantes de caracteres (`' ... '`):** Se reconocen secuencias de escape `\'` y se copian literalmente.
+5. **Identificadores y Palabras Clave (`[a-zA-Z_][a-zA-Z0-9_]*`):** Se extrae el lexema completo y se consulta en la tabla de 37 palabras reservadas estándar de C. Si coincide, se incrementa el contador de frecuencia y se sustituye por su equivalente en español; de lo contrario, se mantiene el identificador original.
 6. **Operadores y delimitadores:** Se transfieren sin alteraciones.
 
 ---
@@ -69,30 +71,30 @@ El analizador léxico implementado aquí opera como un escáner formal que clasi
 
 | Archivo | Descripción |
 | :--- | :--- |
-| `traductor_c.py` | Analizador léxico y traductor en Python 3 puro. |
-| `traductor_c.c` | Analizador léxico y traductor en C (ANSI/C99) con memoria dinámica. |
+| `traductor_c.c` | Analizador léxico y traductor en C (ANSI/C99) con gestión de memoria dinámica. |
 | `programa_prueba.c` | Código C de ejemplo con estructuras, funciones, comentarios y cadenas. |
-| `programa_traducido_py.c` | Resultado generado por la versión Python. |
-| `resultado_traduccion.txt` | Informe estadístico de frecuencias y tiempos de ejecución. |
-| `ejecutar.bat` | Script de compilación y ejecución automática. |
+| `programa_traducido_c.c` | Archivo C resultante con las palabras reservadas traducidas al español. |
+| `resultado_traduccion_c.txt` | Informe estadístico de frecuencias y tiempos medidos con alta precisión. |
+| `ejecutar.bat` | Script de compilación y ejecución automática en Windows. |
 | `README.md` | Documentación técnica del ejercicio. |
 
 ---
 
 ## 5. Instrucciones de Compilación y Ejecución
 
-### En Python:
-```bash
-python traductor_c.py
-```
-*Para traducir un archivo C personalizado:*
-```bash
-python traductor_c.py mi_codigo.c
-```
-
-### En C (GCC / MinGW / Clang):
+### Compilación con GCC (MinGW / Clang):
 ```bash
 gcc -O2 traductor_c.c -o traductor_c.exe
+```
+
+### Ejecución con el archivo de prueba por defecto:
+```bash
 traductor_c.exe programa_prueba.c programa_traducido_c.c
 ```
 
+### Para traducir cualquier otro archivo fuente en C:
+```bash
+traductor_c.exe mi_archivo.c mi_archivo_traducido.c
+```
+
+O haciendo doble clic en el archivo `ejecutar.bat`.

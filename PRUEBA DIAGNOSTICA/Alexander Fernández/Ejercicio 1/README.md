@@ -15,7 +15,7 @@ Dado un tablero de ajedrez estándar de $8 \times 8$ denotado por:
 
 En el tablero se encuentra un único caballo con posición inicial $A_k$ (por ejemplo, `a1`, `a2`, `a8`). Se recibe una cadena $C$ con $n$ movimientos en notación abreviada (prefijo `K` seguido de la columna y fila destino, ej. `Kc2`).
 
-El programa debe verificar secuencialmente los movimientos e indicar:
+El programa verifica secuencialmente los movimientos e indica:
 1. Si todos son correctos: `"movimiento CORRECTO."`
 2. Si un movimiento contiene un identificador que no corresponde al caballo (por ejemplo `Qb4`):  
    `"movimiento INCORRECTO falla letra {letra} no pertenece a un caballo."`
@@ -34,13 +34,13 @@ $$\Delta x^2 + \Delta y^2 = 5$$
 O expresado en diferencias absolutas entre coordenadas:
 $$(|\Delta \text{columna}| = 1 \land |\Delta \text{fila}| = 2) \quad \lor \quad (|\Delta \text{columna}| = 2 \land |\Delta \text{fila}| = 1)$$
 
-### 2.2. Gestión de Memoria Dinámica
-- **En C (`caballo.c`):** La cadena de entrada que contiene los movimientos se almacena y tokeniza en memoria dinámica utilizando `malloc()` y `free()`. Esto permite procesar cadenas arbitrariamente largas (como secuencias de cientos de movimientos) sin riesgos de desbordamiento de búfer en la pila (*stack overflow*).
-- **En Python (`caballo.py`):** Se realiza el procesamiento nativo mediante listas de tokens asignadas dinámicamente en el heap por el recolector de memoria de Python.
+### 2.2. Implementación en Python
+- **Estructura y Gestión de Memoria:** Se procesan las cadenas de entrada mediante listas de tokens asignadas dinámicamente en el heap, utilizando exclusivamente las funciones de la biblioteca estándar de Python (sin dependencias externas).
+- **Rutas Autónomas y Sobreescritura:** El script resuelve dinámicamente su directorio de trabajo (`BASE_DIR = os.path.dirname(os.path.abspath(__file__))`), garantizando que el archivo de reporte `resultado_tiempos_python.txt` se genere y sobreescriba siempre dentro de la carpeta del ejercicio, sin importar desde qué directorio se ejecute el comando.
 
 ### 2.3. Complejidad Computacional
-- **Complejidad Temporal:** $O(n)$, donde $n$ es el número de movimientos. Cada movimiento se analiza en tiempo constante $O(1)$.
-- **Complejidad Espacial:** $O(n)$ para el almacenamiento dinámico del búfer de la cadena de entrada.
+- **Complejidad Temporal:** $O(n)$, donde $n$ es el número de movimientos. Cada validación de salto se evalúa en tiempo constante $O(1)$.
+- **Complejidad Espacial:** $O(n)$ para almacenar en memoria dinámica la secuencia de tokens a validar.
 
 ---
 
@@ -48,34 +48,26 @@ $$(|\Delta \text{columna}| = 1 \land |\Delta \text{fila}| = 2) \quad \lor \quad 
 
 | Archivo | Descripción |
 | :--- | :--- |
-| `caballo.py` | Implementación en Python 3 puro (estándar, sin librerías de terceros). |
-| `caballo.c` | Implementación en C estándar (ANSI C / C99) con memoria dinámica. |
-| `resultado_tiempos.txt` | Archivo con los resultados de las mediciones de tiempo y pruebas. |
-| `ejecutar.bat` | Script de automatización para compilar en C y ejecutar en Python/C. |
+| `caballo.py` | Implementación completa en Python 3 estándar (sin dependencias de terceros). |
+| `resultado_tiempos_python.txt` | Reporte generado con los tiempos de ejecución y pruebas de validación. |
+| `ejecutar.bat` | Script por lotes para ejecutar automáticamente la solución en Windows. |
 | `README.md` | Documentación técnica y académica del ejercicio. |
 
 ---
 
-## 4. Instrucciones de Compilación y Ejecución
+## 4. Instrucciones de Ejecución
 
-### En Python:
+### Ejecución directa desde consola:
 ```bash
 python caballo.py
 ```
-*Para verificar un caso personalizado desde consola:*
+
+### Ejecutar caso personalizado pasando argumentos por consola:
 ```bash
 python caballo.py a1 "Kc2 Kd4 Kb3 Kc5"
 ```
 
-### En C (GCC / MinGW / Clang):
-```bash
-gcc -O2 caballo.c -o caballo.exe
-caballo.exe
-```
-*Para verificar un caso personalizado en C:*
-```bash
-caballo.exe a1 "Kc2 Kd4 Kb3 Kc5"
-```
+O haciendo doble clic en el archivo `ejecutar.bat`.
 
 ---
 
@@ -95,7 +87,7 @@ caballo.exe a1 "Kc2 Kd4 Kb3 Kc5"
 
 ---
 
-## 6. Resultados de Rendimiento
-- **$n = 100$ movimientos:** Tiempo de ejecución $\approx 0.0565\text{ ms}$ (Python) / $< 0.01\text{ ms}$ (C).
-- **10 iteraciones de los movimientos de la guía:** $\approx 1.42\text{ ms}$ en total (promedio $0.14\text{ ms}$ por iteración).
-
+## 6. Resultados de Rendimiento (Python 3)
+- **Verificación para $n = 100$ movimientos:** $\approx 0.055\text{ ms}$ ($0.000055\text{ s}$).
+- **10 iteraciones de la secuencia de la guía (330 movimientos, $A_k = a2$):** $\approx 1.38\text{ ms}$ en total (promedio de $0.138\text{ ms}$ por pasada).
+- **10 iteraciones de 500 movimientos continuos ($A_k = a2$):** $\approx 2.60\text{ ms}$ en total (promedio de $0.260\text{ ms}$ por pasada).

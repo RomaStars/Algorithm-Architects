@@ -13,15 +13,17 @@ Dado un tablero de ajedrez estándar de $8 \times 8$ denotado por:
 - **Columnas:** `['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']`
 - **Filas:** `['1', '2', '3', '4', '5', '6', '7', '8']`
 
-En el tablero se encuentra un único caballo con posición inicial $A_k$ (por ejemplo, `a1`, `a2`, `a8`). Se recibe una cadena $C$ con $n$ movimientos en notación abreviada (prefijo `K` seguido de la columna y fila destino, ej. `Kc2`).
+En el tablero se encuentra un único caballo con posición inicial $A_k$. Se recibe una cadena $C$ con $n$ movimientos en notación abreviada (prefijo `K` seguido de la columna y fila destino, ej. `Kc2`).
 
 El programa debe verificar secuencialmente los movimientos e indicar:
 1. Si todos son correctos: `"movimiento CORRECTO."`
 2. Si un movimiento contiene un identificador que no corresponde al caballo (por ejemplo `Qb4`):  
-   `"movimiento INCORRECTO falla letra {letra} no pertenece a un caballo."`
+   `"INCORRECTO falla letra {letra} no pertenece a un caballo."`
 3. Si un movimiento es inválido (fuera del tablero o no cumple el patrón en "L"):  
-   `"movimiento INCORRECTO falla en el movimiento {i}."`
+   `"INCORRECTO falla en el movimiento {i}."`
 4. El análisis se detiene inmediatamente al encontrar el primer fallo (evaluación en cortocircuito).
+
+*Nota: Se seleccionó **Python** para esta implementación por su manejo limpio de cadenas y estructuras de datos dinámicas, cumpliendo con el lineamiento de realizarlo en el lenguaje de preferencia.*
 
 ---
 
@@ -34,14 +36,14 @@ $$\Delta x^2 + \Delta y^2 = 5$$
 O expresado en diferencias absolutas entre coordenadas:
 $$(|\Delta \text{columna}| = 1 \land |\Delta \text{fila}| = 2) \quad \lor \quad (|\Delta \text{columna}| = 2 \land |\Delta \text{fila}| = 1)$$
 
-### 2.2. Gestión de Memoria Dinámica y Nomenclatura
-- **En C (`ejercicio1.c`):** La cadena de entrada con los movimientos se copia a un búfer reservado dinámicamente usando `malloc()` y se libera con `free()`. Esto permite tokenizar la cadena con `strtok` sin modificar el texto original y procesar secuencias de cientos de movimientos sin desbordar la pila (*stack overflow*).
-- **En Python (`ejercicio1.py`):** El procesamiento se realiza mediante listas y manipulación de cadenas nativas, gestionadas en el heap por el recolector de basura de Python.
-- **Nomenclatura:** Todo el código fue implementado utilizando nombres de variables y funciones en español (ej. `validar_secuencia`, `analizar_casilla`) para mantener una estructura clara y académica.
+### 2.2. Algoritmo y Memoria Dinámica
+- **Procesamiento:** El programa recibe las cadenas de texto, las divide dinámicamente en una lista de tokens usando `split()`, y valida cada movimiento en tiempo constante $O(1)$.
+- **Cortocircuito:** Si encuentra un error, el bucle `for` se rompe inmediatamente y retorna el número de movimiento donde falló, evitando procesar el resto de la cadena innecesariamente.
+- **Gestión de memoria:** En Python, la asignación de la lista de tokens se realiza de forma dinámica en el *heap* administrado por el recolector de basura del intérprete.
 
 ### 2.3. Complejidad Computacional
-- **Complejidad Temporal:** $O(n)$, donde $n$ es el número de movimientos. Cada movimiento se analiza en tiempo constante $O(1)$.
-- **Complejidad Espacial:** $O(n)$ para el almacenamiento dinámico del búfer de la cadena de entrada.
+- **Complejidad Temporal:** $O(n)$, donde $n$ es el número de movimientos. Cada movimiento se analiza una sola vez.
+- **Complejidad Espacial:** $O(n)$ para el almacenamiento dinámico de los tokens en la memoria.
 
 ---
 
@@ -49,52 +51,49 @@ $$(|\Delta \text{columna}| = 1 \land |\Delta \text{fila}| = 2) \quad \lor \quad 
 
 | Archivo | Descripción |
 | :--- | :--- |
-| `ejercicio1.py` | Implementación en Python 3 puro. |
-| `ejercicio1.c` | Implementación en C estándar con memoria dinámica. |
-| `resultado_ej1_py.txt` | Reporte generado automáticamente con los tiempos en Python. |
-| `resultado_ej1_c.txt` | Reporte generado automáticamente con los tiempos en C. |
+| `ejercicio1.py` | Implementación del algoritmo en Python 3. |
+| `resultado_ej1_py.txt` | Reporte generado automáticamente con las pruebas y la medición de tiempos. |
 | `README.md` | Documentación técnica y académica del ejercicio. |
 
 ---
 
-## 4. Instrucciones de Compilación y Ejecución
+## 4. Instrucciones de Ejecución
 
 ### En Python:
 ```bash
 python ejercicio1.py
+```
+----
 
-```
-### En C (GCC / MinGW / Clang):
-```bash
-gcc ejercicio1.c -O2 -o ejercicio1
-./ejercicio1
-```
 ## 5. Casos de Prueba Oficiales de la Guía
 
-A continuación se presentan los 9 casos de prueba estipulados en el enunciado, junto con la salida exacta que genera nuestro programa y su respectiva validación:
+El programa ejecuta automáticamente los 9 casos de prueba estipulados en el enunciado y genera la salida exacta solicitada:
 
-| # | Posición Inicial (Ak) | Cadena de Movimientos (C) | Salida Obtenida por el Programa | Estado |
-|:---:|:---:|:---|:---|:---:|
-| 1 | `a1` | `Kc2 Kd4 Kb3 Kc5` | `Caso 1: movimiento CORRECTO` | ✅ PASS |
-| 2 | `a1` | `Kc2 Kd4 Kb4 Kc5` | `Caso 2: INCORRECTO falla en el movimiento 3` | ✅ PASS |
-| 3 | `a2` | `Kc3 Ke4 Kf6 Ke8 Kg7` | `Caso 3: movimiento CORRECTO` | ✅ PASS |
-| 4 | `a2` | `Kc8 Ke4 Kf6 Ke8 Kg7` | `Caso 4: INCORRECTO falla en el movimiento 1` | ✅ PASS |
-| 5 | `a8` | `Kb6 Kd7` | `Caso 5: movimiento CORRECTO` | ✅ PASS |
-| 6 | `a8` | `Kb6 Kb7` | `Caso 6: INCORRECTO falla en el movimiento 2` | ✅ PASS |
-| 7 | `a1` | `Kc2 Kd4 Kf3 Ke5 Kg6 Kh8 Kf7 Kd8 Kc6 Kb4` | `Caso 7: movimiento CORRECTO` | ✅ PASS |
-| 8 | `a1` | `Kc2 Kd4 Kf3 Ke5 Kg6 Kh8 Kf7 Kd8 Kc6 Qb4` | `Caso 8: INCORRECTO falla letra Q no pertenece a un caballo` | ✅ PASS |
-| 9 | `a1` | `Kc2 Kd4 Kf3 Ke5 Kg6 Kh8 Kf7 Kd8 Kh6 Kb4` | `Caso 9: INCORRECTO falla en el movimiento 9` | ✅ PASS |
+| # | Posición Inicial (Ak) | n | Cadena de Movimientos (C) | Salida Obtenida | Estado |
+|:---:|:---:|:---:|:---|:---|:---:|
+| 1 | `a1` | 4 | `Kc2 Kd4 Kb3 Kc5` | `movimiento CORRECTO.` | ✅ PASS |
+| 2 | `a1` | 4 | `Kc2 Kd4 Kb4 Kc5` | `INCORRECTO falla en el movimiento 3.` | ✅ PASS |
+| 3 | `a2` | 5 | `Kc3 Ke4 Kf6 Ke8 Kg7` | `movimiento CORRECTO.` | ✅ PASS |
+| 4 | `a2` | 5 | `Kc8 Ke4 Kf6 Ke8 Kg7` | `INCORRECTO falla en el movimiento 1.` | ✅ PASS |
+| 5 | `a8` | 2 | `Kb6 Kd7` | `movimiento CORRECTO.` | ✅ PASS |
+| 6 | `a8` | 2 | `Kb6 Kb7` | `INCORRECTO falla en el movimiento 2.` | ✅ PASS |
+| 7 | `a1` | 10 | `Kc2 Kd4 Kf3 Ke5 Kg6 Kh8 Kf7 Kd8 Kc6 Kb4` | `movimiento CORRECTO.` | ✅ PASS |
+| 8 | `a1` | 10 | `Kc2 Kd4 Kf3 Ke5 Kg6 Kh8 Kf7 Kd8 Kc6 Qb4` | `INCORRECTO falla letra Q no pertenece a un caballo.` | ✅ PASS |
+| 9 | `a1` | 10 | `Kc2 Kd4 Kf3 Ke5 Kg6 Kh8 Kf7 Kd8 Kh6 Kb4` | `INCORRECTO falla en el movimiento 9.` | ✅ PASS |
+
+---
 
 ## 6. Resultados de Rendimiento y Medición
 
-Se realizaron las pruebas de estrés exigidas utilizando la lista de 500 movimientos suministrada en el enunciado (tomando $A_k = a2$ para iniciar de forma válida). Los reportes completos se encuentran en los archivos `resultado_ej1_c.txt` y `resultado_ej1_py.txt`.
+Se realizó la prueba de estrés exigida en el enunciado: **verificar 10 veces la lista de 500 movimientos**
 
-| Métrica | Implementación en C | Implementación en Python |
-| :--- | :--- | :--- |
-| **$n = 100$ movimientos** | `0.000000 ms` | `0.167500 ms` |
-| **10 iteraciones (500 mov.)** | `0.0000 ms` | `1.6272 ms` |
-| **Estado final (500 mov.)** | `INCORRECTO` (detectado en el fallo) | `INCORRECTO` (detectado en el fallo) |
+| Métrica | Implementación en Python |
+| :--- | :--- |
+| **Lista evaluada** | 500 movimientos |
+| **Iteraciones** | 10 pasadas |
+| **Estado final** | `movimiento CORRECTO.` |
+| **Tiempo total (10 pasadas)** | `4.7663 ms` |
+| **Tiempo promedio por pasada** | `0.4766 ms` |
 
-### Notas técnicas sobre los resultados:
-1. **Resolución del reloj en C:** El tiempo de `0.000000 ms` en C es normal. La función `clock()` en Windows tiene una resolución de milisegundos. El procesamiento en C es tan eficiente que se completa en menos de un *tick* de reloj, por lo que se redondea a cero.
-2. **Estado "INCORRECTO" en las 500 iteraciones:** La lista exacta suministrada en el PDF oficial contiene un salto inválido (error de tipeo en el documento original). Ambos programas detectaron este error y se detuvieron correctamente gracias al cortocircuito exigido en el enunciado, demostrando la efectividad de la validación.
+1. **Validación de la lista actualizada:** El profesor corrigió la lista de movimientos en la actualización del PDF. Al ser una lista 100% válida, el programa procesó las 10 pasadas completas sin detenerse en errores, arrojando un estado final `CORRECTO`.
+2. **Eficiencia:** El tiempo promedio por pasada de los 500 movimientos es de apenas `0.4766 ms`. Esto demuestra la eficiencia del algoritmo de validación en tiempo lineal $O(n)$, procesando cada movimiento sin bucles anidados ni sobrecarga innecesaria.

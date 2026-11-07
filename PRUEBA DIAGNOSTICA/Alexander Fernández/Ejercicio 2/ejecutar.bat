@@ -22,13 +22,14 @@ if %ERRORLEVEL% equ 0 (
         pascal_polinomio.exe
     )
 ) else (
-    echo [AVISO] GCC no está en el PATH del sistema actual.
-    echo El código fuente C ('pascal_polinomio.c') es estándar ANSI C/C99 y puede compilarse con:
-    echo    gcc -O2 pascal_polinomio.c -o pascal_polinomio.exe
-    echo o con cualquier compilador estándar (Clang, MSVC, Code::Blocks).
+    if exist pascal_polinomio.exe (
+        echo Ejecutando binario C compilado previamente:
+        pascal_polinomio.exe
+    ) else (
+        echo [AVISO] GCC no está en el PATH actual para compilar C.
+    )
 )
 
 echo.
 echo Proceso finalizado. Revise 'resultado_tiempos_python.txt' y 'resultado_tiempos_c.txt'.
 pause
-
