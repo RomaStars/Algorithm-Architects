@@ -1,9 +1,6 @@
 #ifndef KNIGHT_CHECKER_H
 #define KNIGHT_CHECKER_H
 
-#include <stdbool.h>
-#include <stdio.h>
-
 // Convierte notación de ajedrez ("a1") a coordenadas de matriz (0 a 7)
 bool parse_position(const char *pos, int *col, int *row);
 

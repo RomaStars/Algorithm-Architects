@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "../include/knight_checker.h"
 
 const char *BENCHMARK_SEQUENCE = 
