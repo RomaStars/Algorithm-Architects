@@ -3,6 +3,6 @@
 ===================================================
 Parametro n evaluado: 100
 Repeticiones de prueba: 10000
-Tiempo total: 0.111000 segundos
-Tiempo promedio: 0.00001110 segundos (0.011100 ms)
+Tiempo total: 0.129000 segundos
+Tiempo promedio: 0.00001290 segundos (0.012900 ms)
 Estado: Ejecucion exitosa con memoria dinamica.

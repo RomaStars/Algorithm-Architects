@@ -3,6 +3,6 @@
 ===================================================
 Parametro n evaluado: 100
 Repeticiones de prueba: 10000
-Tiempo total: 2.816892 segundos
-Tiempo promedio: 0.00028169 segundos (0.281689 ms)
+Tiempo total: 4.504152 segundos
+Tiempo promedio: 0.00045042 segundos (0.450415 ms)
 Estado: Ejecucion exitosa con listas dinamicas.
