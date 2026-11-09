@@ -1,0 +1,15 @@
+--- validacion de casos de ejemplo ---
+Para Ak = a1 n= 4 -> salida: movimiento CORRECTO.
+Para Ak = a1 n= 4 -> salida: INCORRECTO falla en el movimiento 3.
+Para Ak = a2 n= 5 -> salida: movimiento CORRECTO.
+Para Ak = a2 n= 5 -> salida: INCORRECTO falla en el movimiento 1.
+Para Ak = a8 n= 2 -> salida: movimiento CORRECTO.
+Para Ak = a8 n= 2 -> salida: INCORRECTO falla en el movimiento 2.
+Para Ak = a1 n= 10 -> salida: movimiento CORRECTO.
+Para Ak = a1 n= 10 -> salida: movimiento INCORRECTO falla letra Q no pertenece a un caballo.
+Para Ak = a1 n= 10 -> salida: INCORRECTO falla en el movimiento 9.
+
+--- prueba de rendimiento (500 movimientos x 10 veces) ---
+Posicion inicial: a2 | Cantidad: 500 movimientos
+Resultado: movimiento CORRECTO.
+Tiempo en verificar 10 veces: 0.001719 segundos

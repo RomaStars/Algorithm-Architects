@@ -1,0 +1,42 @@
+--- resultado de ejercicio2.py ---
+--- prueba para n = 5, x = 2 ---
+coeficientes (n=5): [1, 5, 10, 10, 5, 1]
+(x+1)^5 = x^5 + 5x^4 + 10x^3 + 10x^2 + 5x + 1
+
+evaluando f(2) = (2+1)^5 por pasos:
+  paso 1: coef 1 * (2^5 = 32) = 32
+  paso 2: coef 5 * (2^4 = 16) = 80
+  paso 3: coef 10 * (2^3 = 8) = 80
+  paso 4: coef 10 * (2^2 = 4) = 40
+  paso 5: coef 5 * (2^1 = 2) = 10
+  paso 6: coef 1 * (2^0 = 1) = 1
+
+suma de terminos: f(2) = 1*(2^5) + 5*(2^4) + 10*(2^3) + 10*(2^2) + 5*(2^1) + 1*(2^0)
+f(2) = 32 + 80 + 80 + 40 + 10 + 1
+resultado final: f(2) = 243
+
+--- medicion de rendimiento para n = 100 ---
+cantidad de coeficientes generados: 101
+coeficiente central C(100,50): 100891344545564193334812497256
+tiempo en generar n=100 (python): 0.00048680 segundos
+
+--- resultado de ejercicio2.c ---
+--- prueba para n = 5, x = 2 ---
+coeficientes (n=5): 1 5 10 10 5 1
+(x+1)^5 = x^5 + 5x^4 + 10x^3 + 10x^2 + 5x + 1
+
+evaluando f(2) = (2+1)^5 por pasos:
+  paso 1: coef 1 * (2^5 = 32) = 32
+  paso 2: coef 5 * (2^4 = 16) = 80
+  paso 3: coef 10 * (2^3 = 8) = 80
+  paso 4: coef 10 * (2^2 = 4) = 40
+  paso 5: coef 5 * (2^1 = 2) = 10
+  paso 6: coef 1 * (2^0 = 1) = 1
+
+suma de terminos: f(2) = 32 + 80 + 80 + 40 + 10 + 1
+resultado final: f(2) = 243
+
+--- medicion de rendimiento para n = 100 ---
+cantidad de coeficientes generados: 101
+coeficiente central C(100,50): 100891344545564237256087044096
+tiempo en generar n=100 (c): 0.00002920 segundos (29.20 microsegundos)

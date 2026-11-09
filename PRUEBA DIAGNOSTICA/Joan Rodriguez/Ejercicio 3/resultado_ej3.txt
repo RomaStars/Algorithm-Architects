@@ -1,0 +1,64 @@
+=== codigo original cargado en memoria dinamica (muestra.c) ===
+#include <stdio.h>
+
+// funcion de prueba con palabras reservadas
+int main() {
+    int contador = 0;
+    double promedio = 15.5;
+    const char letra = 'a';
+
+    for (int i = 0; i < 5; i++) {
+        contador += i;
+        if (contador > 4) {
+            break;
+        } else {
+            continue;
+        }
+    }
+
+    while (contador > 0) {
+        contador--;
+    }
+
+    printf("int y return dentro de comillas no se traducen: %d\n", contador);
+    return 0;
+}
+=== palabras reservadas encontradas y su traduccion ===
+  break      -> romper          (1 apariciones)
+  char       -> caracter        (1 apariciones)
+  const      -> constante       (1 apariciones)
+  continue   -> continuar       (1 apariciones)
+  double     -> doble           (1 apariciones)
+  else       -> sino            (1 apariciones)
+  for        -> para            (1 apariciones)
+  if         -> si              (1 apariciones)
+  int        -> entero          (3 apariciones)
+  return     -> retornar        (1 apariciones)
+  while      -> mientras        (1 apariciones)
+total de palabras reservadas traducidas: 13
+
+=== codigo con palabras reservadas traducidas al espanol ===
+#include <stdio.h>
+
+// funcion de prueba con palabras reservadas
+entero main() {
+    entero contador = 0;
+    doble promedio = 15.5;
+    constante caracter letra = 'a';
+
+    para (entero i = 0; i < 5; i++) {
+        contador += i;
+        si (contador > 4) {
+            romper;
+        } sino {
+            continuar;
+        }
+    }
+
+    mientras (contador > 0) {
+        contador--;
+    }
+
+    printf("int y return dentro de comillas no se traducen: %d\n", contador);
+    retornar 0;
+}
